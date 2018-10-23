@@ -31,6 +31,9 @@ public class File {
         this.folder = folder;
     }
 
+    public File() {
+    }
+
     public String getName() {
         return name;
     }
