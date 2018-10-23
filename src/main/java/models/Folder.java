@@ -1,41 +1,25 @@
 package models;
 
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "folders")
+public class Folder {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "name")
     private String name;
-
-    @JsonIgnore
-    @OneToMany
     private List<File> files;
+    private User user;
 
-    public User(String name) {
+    public Folder(String name, User user) {
         this.name = name;
+        this.user = user;
         this.files = new ArrayList<>();
     }
 
-    public User() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public Folder() {
     }
 
     public String getName() {
@@ -52,5 +36,13 @@ public class User {
 
     public void setFiles(List<File> files) {
         this.files = files;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

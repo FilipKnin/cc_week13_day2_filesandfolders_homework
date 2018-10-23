@@ -22,13 +22,13 @@ public class File {
 
     @ManyToOne
     @JoinColumn(name = "folder_id", nullable = false)
-    private File file;
+    private Folder folder;
 
-    public File(String name, String extension, int size, File file) {
+    public File(String name, String extension, int size, Folder folder) {
         this.name = name;
         this.extension = extension;
         this.size = size;
-        this.file = file;
+        this.folder = folder;
     }
 
     public File() {
@@ -66,11 +66,12 @@ public class File {
         this.size = size;
     }
 
-    public File getFile() {
-        return file;
+
+    public Folder getFolder() {
+        return folder;
     }
 
-    public void setFile(File file) {
-        this.file = file;
+    public void setFolder(Folder folder) {
+        this.folder = folder;
     }
 }
