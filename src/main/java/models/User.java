@@ -20,11 +20,11 @@ public class User {
 
     @JsonIgnore
     @OneToMany
-    private List<File> files;
+    private List<Folder> folders;
 
     public User(String name) {
         this.name = name;
-        this.files = new ArrayList<>();
+        this.folders = new ArrayList<>();
     }
 
     public User() {
@@ -46,11 +46,13 @@ public class User {
         this.name = name;
     }
 
-    public List<File> getFiles() {
-        return files;
+    public List<Folder> getFolders() {
+        return folders;
     }
 
-    public void setFiles(List<File> files) {
-        this.files = files;
+    public void setFolders(List<Folder> folders) {
+        this.folders = folders;
     }
 }
+
+

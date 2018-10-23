@@ -1,7 +1,8 @@
 package models;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +10,17 @@ import java.util.List;
 @Table(name = "folders")
 public class Folder {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @JsonIgnore
+    @OneToMany
     private List<File> files;
+
     private User user;
 
     public Folder(String name, User user) {
